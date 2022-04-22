@@ -70,10 +70,14 @@ def getSmoothLines(image, lines):
 
 
 # work with test_video, test_video1, test_video2
-videoFeed = cv2.VideoCapture("test_video4.mp4")
+videoFeed = cv2.VideoCapture("test_video5.mp4")
+
+# Define the codec and create VideoWriter object
+# fourcc = cv2.VideoWriter_fourcc(*'XVID')
+# out = cv2.VideoWriter('test_video_res.avi', fourcc, 15.0, (640, 480))
 
 try:
-    # print("video feed present")
+    print("video feed present")
     while videoFeed.isOpened():
         # print("video feed opened")
         (status, image) = videoFeed.read()
@@ -88,6 +92,10 @@ try:
 
 
         cv2.imshow("Output", image_with_smooth_lines)
+        # cv2.imshow("Output", image_with_lines)
+
+        # output the frame
+        # out.write(image_with_smooth_lines)
         k = cv2.waitKey(1)
         if k == 27:
             break
